@@ -8,7 +8,7 @@ const fs = require('fs');
 const app = express();
 app.use(bodyparser.json());
 const publicAPI = require('./api')
-app.use('/api/public', cors(), publicAPI);
+app.use('/api/public', cors({ origin: "*" }), publicAPI);
 
 const credentials = {
   key: fs.readFileSync('ssl/private.key'), 
